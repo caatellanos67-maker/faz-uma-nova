@@ -1,62 +1,1806 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consulta de Informações e Condições</title>
-<meta name="description" content="Consulte informações, requisitos e condições de forma simples e transparente. Confira os detalhes antes de prosseguir.">
-<meta name="robots" content="index,follow">
-<style>
-:root{--p:#a91863;--pd:#85124e;--soft:#f9edf4;--text:#211a20;--muted:#6e6670;--border:#e8e2e6}
-*{margin:0;padding:0;box-sizing:border-box}
-body{min-height:100vh;min-height:100svh;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,rgba(42,10,32,.66),rgba(125,20,78,.48)),url("fundo.jpg") center/cover fixed no-repeat;display:flex;align-items:center;justify-content:center;padding:20px}
-.container{width:100%;max-width:455px}
-.card{position:relative;overflow:hidden;background:#fff;border-radius:28px;padding:34px 25px 24px;box-shadow:0 28px 80px rgba(25,6,19,.34);animation:show .55s ease both}
-@keyframes show{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.top-line{position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#951052,#d62a7d)}
-.icon{width:64px;height:64px;margin:7px auto 17px;border-radius:20px;background:var(--soft);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:29px;font-weight:900}
-.badge{display:table;margin:0 auto 17px;padding:7px 12px;border-radius:999px;background:#f9e8f1;color:#94104f;font-size:11px;font-weight:800;letter-spacing:.7px}
-h1{text-align:center;font-size:34px;line-height:1.1;letter-spacing:-1.1px;font-weight:850;margin-bottom:16px}
-h1 span{color:var(--p)}
-.intro{text-align:center;color:var(--muted);font-size:16px;line-height:1.55;max-width:355px;margin:0 auto 23px}
-.info-box{display:flex;gap:11px;align-items:flex-start;background:#faf8fa;border:1px solid var(--border);border-radius:14px;padding:13px 14px;margin-bottom:16px}
-.info-icon{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:#ead6e1;color:var(--p);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
-.info-box p{color:#5f5860;font-size:12px;line-height:1.5}
-.cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:62px;border-radius:16px;background:linear-gradient(135deg,#d72b7d,#a9155e);color:#fff;text-decoration:none;font-size:19px;font-weight:800;box-shadow:0 12px 28px rgba(169,24,99,.26);transition:.2s ease}
-.cta:hover{background:linear-gradient(135deg,#c92370,#8f104f);transform:translateY(-2px)}
-.arrow{margin-left:9px;font-size:22px;transition:transform .2s ease}.cta:hover .arrow{transform:translateX(4px)}
-.status{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:14px;color:#777078;font-size:11px}
-.status-dot{width:7px;height:7px;border-radius:50%;background:#238657}
-.divider{height:1px;background:var(--border);margin:22px 0 15px}
-.legal{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 17px}.legal a{color:#7d3158;font-size:11px;text-decoration:none}.legal a:hover{text-decoration:underline}
-.footer-note{margin-top:14px;text-align:center;color:#9a939a;font-size:10px;line-height:1.55}
-@media(max-width:390px){body{padding:12px}.card{padding:29px 18px 21px;border-radius:25px}h1{font-size:30px}.intro{font-size:15px}.cta{min-height:59px;font-size:18px}}
-@media(min-width:700px){.container{max-width:475px}.card{padding:44px 38px 28px}h1{font-size:40px}.intro{font-size:17px}}
-@media(prefers-reduced-motion:reduce){.card{animation:none}.cta{transition:none}}
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitStore | Produtos para Academia e Fitness</title>
+
+    <meta name="description"
+          content="Encontre produtos para academia, treino e fitness. Confira acessórios, equipamentos e itens selecionados para sua rotina de exercícios.">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="FitStore">
+
+    <link rel="canonical" href="https://www.seusite.com.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FitStore | Produtos para Academia e Fitness">
+    <meta property="og:description"
+          content="Produtos e acessórios para sua rotina de treino. Confira nossas ofertas.">
+    <meta property="og:url" content="https://www.seusite.com.br/">
+    <meta property="og:image" content="https://www.seusite.com.br/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FitStore",
+      "url": "https://www.seusite.com.br/",
+      "description": "Loja online de produtos e acessórios para academia e fitness",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.seusite.com.br/busca?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #f4f4f4;
+            --accent: #ff5a1f;
+            --accent-dark: #d9410b;
+            --text: #1a1a1a;
+            --muted: #666;
+            --white: #ffffff;
+            --border: #e5e5e5;
+            --success: #17833b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* TOP BAR */
+
+        .topbar {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 13px;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .menu {
+            display: flex;
+            gap: 26px;
+            align-items: center;
+        }
+
+        .menu a {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search {
+            border: 1px solid var(--border);
+            padding: 10px 13px;
+            border-radius: 8px;
+            outline: none;
+            width: 180px;
+        }
+
+        .cart {
+            background: var(--accent);
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.84), rgba(0,0,0,.35)),
+                url("images/hero-academia.jpg") center/cover no-repeat;
+            color: white;
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            padding: 70px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.25);
+            padding: 8px 12px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #eee;
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            border-color: #ddd;
+            background: white;
+        }
+
+        /* BENEFITS */
+
+        .benefits {
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .benefit-icon {
+            font-size: 25px;
+        }
+
+        .benefit strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .benefit span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+        }
+
+        /* CATEGORIES */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            min-height: 210px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: end;
+        }
+
+        .category::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.8));
+        }
+
+        .category-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            color: white;
+        }
+
+        .category-content h3 {
+            font-size: 20px;
+        }
+
+        .category-content span {
+            font-size: 13px;
+        }
+
+        /* PRODUCTS */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            transition: .2s;
+        }
+
+        .product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        }
+
+        .product-image {
+            height: 230px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .product h3 {
+            font-size: 16px;
+            margin: 7px 0;
+        }
+
+        .rating {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .price-old {
+            color: #888;
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .installment {
+            font-size: 12px;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border: 0;
+            padding: 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .buy-btn:hover {
+            background: #333;
+        }
+
+        /* OFFER */
+
+        .offer {
+            background: var(--secondary);
+        }
+
+        .offer-box {
+            background: var(--accent);
+            color: white;
+            border-radius: 18px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .offer h2 {
+            font-size: 38px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            opacity: .92;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+        }
+
+        /* REVIEWS */
+
+        .reviews {
+            background: #f8f8f8;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .review-stars {
+            margin-bottom: 12px;
+        }
+
+        .review p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .review strong {
+            font-size: 13px;
+        }
+
+        /* FAQ */
+
+        .faq {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        details {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        details p {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            max-width: 550px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px;
+            border-radius: 7px;
+            border: 0;
+            outline: none;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b0b0b;
+            color: white;
+            padding: 55px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 9px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* COOKIE */
+
+        .cookie {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 720px;
+            margin: auto;
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 40px rgba(0,0,0,.18);
+            border-radius: 12px;
+            padding: 18px;
+            z-index: 9999;
+            display: none;
+        }
+
+        .cookie p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .menu {
+                display: none;
+            }
+
+            .search {
+                display: none;
+            }
+
+            .benefit-grid,
+            .category-grid,
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .offer-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 55px 0;
+            }
+
+            .hero {
+                min-height: 620px;
+            }
+
+            .benefit-grid,
+            .category-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits {
+                padding: 18px 0;
+            }
+
+            .benefit-grid {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .offer-box {
+                padding: 30px;
+            }
+
+            .offer h2 {
+                font-size: 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                min-height: 65px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<main class="container">
-<section class="card" aria-labelledby="titulo">
-<div class="top-line" aria-hidden="true"></div>
-<div class="icon" aria-hidden="true">✓</div>
-<div class="badge">CONSULTA ONLINE</div>
-<h1 id="titulo">Consulte informações e veja as <span>condições disponíveis</span></h1>
-<p class="intro">Acesse a página de consulta para conferir informações, requisitos e condições de forma simples e transparente.</p>
-<div class="info-box">
-<div class="info-icon" aria-hidden="true">i</div>
-<p>As condições podem variar de acordo com o perfil, região, disponibilidade e critérios informados na página de destino.</p>
-</div>
-<a class="cta" href="https://brilliant-desenrola.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar página de consulta">Acessar consulta <span class="arrow" aria-hidden="true">→</span></a>
-<div class="status"><span class="status-dot" aria-hidden="true"></span>Processo online e informativo</div>
-<div class="divider"></div>
-<nav class="legal" aria-label="Informações legais">
-<a href="/politica-de-privacidade.html">Política de Privacidade</a>
-<a href="/termos.html">Termos de Uso</a>
-<a href="/contato.html">Contato</a>
-</nav>
-<p class="footer-note">Esta página tem caráter informativo. Não há garantia de aprovação, concessão ou disponibilidade de qualquer benefício ou condição. Consulte os critérios e informações apresentados no site de destino.</p>
-</section>
-</main>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+        🚚 Envio para todo o Brasil • Consulte condições de frete
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="container nav">
+
+            <a href="/" class="logo">
+                Fit<span>Store</span>
+            </a>
+
+            <nav class="menu">
+                <a href="#categorias">Categorias</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#ofertas">Ofertas</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <input
+                    type="search"
+                    class="search"
+                    placeholder="Buscar produto..."
+                    aria-label="Buscar produto"
+                >
+
+                <button class="cart" onclick="abrirCarrinho()">
+                    🛒 Carrinho
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <span class="badge">
+                        PRODUTOS PARA SUA ROTINA DE TREINO
+                    </span>
+
+                    <h1>
+                        Equipamentos e acessórios para academia
+                    </h1>
+
+                    <p>
+                        Encontre produtos selecionados para complementar
+                        sua rotina de exercícios, treinos em casa e academia.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#produtos" class="btn btn-primary"
+                           onclick="registrarConversao('view_products')">
+                            Ver produtos
+                        </a>
+
+                        <a href="#ofertas" class="btn btn-light">
+                            Ver ofertas
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BENEFÍCIOS -->
+
+        <section class="benefits">
+
+            <div class="container benefit-grid">
+
+                <div class="benefit">
+                    <div class="benefit-icon">🚚</div>
+                    <div>
+                        <strong>Envio nacional</strong>
+                        <span>Consulte prazo para sua região</span>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🔒</div>
+                    <div>
+                        <strong>Compra segura</strong>
+                        <span>Ambiente protegido</span>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">💳</div>
+                    <div>
+                        <strong>Pagamento facilitado</strong>
+                        <span>Confira as opções no checkout</span>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">💬</div>
+                    <div>
+                        <strong>Atendimento</strong>
+                        <span>Fale com nossa equipe</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIAS -->
+
+        <section id="categorias">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2>Encontre o que você procura</h2>
+
+                    <p>
+                        Explore nossas principais categorias.
+                    </p>
+
+                </div>
+
+                <div class="category-grid">
+
+                    <a class="category"
+                       href="/categoria/acessorios"
+                       style="background-image:url('images/categoria-acessorios.jpg')">
+
+                        <div class="category-content">
+                            <h3>Acessórios</h3>
+                            <span>Ver produtos →</span>
+                        </div>
+
+                    </a>
+
+                    <a class="category"
+                       href="/categoria/pesos"
+                       style="background-image:url('images/categoria-pesos.jpg')">
+
+                        <div class="category-content">
+                            <h3>Pesos e halteres</h3>
+                            <span>Ver produtos →</span>
+                        </div>
+
+                    </a>
+
+                    <a class="category"
+                       href="/categoria/treino-em-casa"
+                       style="background-image:url('images/categoria-home-gym.jpg')">
+
+                        <div class="category-content">
+                            <h3>Treino em casa</h3>
+                            <span>Ver produtos →</span>
+                        </div>
+
+                    </a>
+
+                    <a class="category"
+                       href="/categoria/roupas"
+                       style="background-image:url('images/categoria-roupas.jpg')">
+
+                        <div class="category-content">
+                            <h3>Roupas fitness</h3>
+                            <span>Ver produtos →</span>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUTOS -->
+
+        <section id="produtos">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2>Produtos em destaque</h2>
+
+                    <p>
+                        Confira alguns dos produtos disponíveis em nossa loja.
+                    </p>
+
+                </div>
+
+                <div class="product-grid">
+
+
+                    <!-- PRODUTO 1 -->
+
+                    <article class="product">
+
+                        <div class="product-image">
+
+                            <img
+                                src="images/halter-ajustavel.jpg"
+                                alt="Halter ajustável para exercícios"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Equipamentos
+                            </span>
+
+                            <h3>Halter Ajustável</h3>
+
+                            <div class="rating">
+                                ⭐⭐⭐⭐⭐ <span>(124 avaliações)</span>
+                            </div>
+
+                            <span class="price-old">
+                                R$ 299,90
+                            </span>
+
+                            <div class="price">
+                                R$ 229,90
+                            </div>
+
+                            <div class="installment">
+                                Consulte condições de pagamento
+                            </div>
+
+                            <a
+                                href="/produto/halter-ajustavel"
+                                class="buy-btn"
+                                onclick="registrarConversao('product_click')"
+                            >
+                                Ver produto
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 2 -->
+
+                    <article class="product">
+
+                        <div class="product-image">
+
+                            <img
+                                src="images/kit-elastico.jpg"
+                                alt="Kit de faixas elásticas para exercícios"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Acessórios
+                            </span>
+
+                            <h3>Kit Faixas Elásticas</h3>
+
+                            <div class="rating">
+                                ⭐⭐⭐⭐⭐ <span>(87 avaliações)</span>
+                            </div>
+
+                            <span class="price-old">
+                                R$ 119,90
+                            </span>
+
+                            <div class="price">
+                                R$ 89,90
+                            </div>
+
+                            <div class="installment">
+                                Consulte condições de pagamento
+                            </div>
+
+                            <a
+                                href="/produto/kit-faixas-elasticas"
+                                class="buy-btn"
+                                onclick="registrarConversao('product_click')"
+                            >
+                                Ver produto
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 3 -->
+
+                    <article class="product">
+
+                        <div class="product-image">
+
+                            <img
+                                src="images/colchonete.jpg"
+                                alt="Colchonete para exercícios"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Treino
+                            </span>
+
+                            <h3>Colchonete Fitness</h3>
+
+                            <div class="rating">
+                                ⭐⭐⭐⭐⭐ <span>(63 avaliações)</span>
+                            </div>
+
+                            <span class="price-old">
+                                R$ 99,90
+                            </span>
+
+                            <div class="price">
+                                R$ 69,90
+                            </div>
+
+                            <div class="installment">
+                                Consulte condições de pagamento
+                            </div>
+
+                            <a
+                                href="/produto/colchonete-fitness"
+                                class="buy-btn"
+                                onclick="registrarConversao('product_click')"
+                            >
+                                Ver produto
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 4 -->
+
+                    <article class="product">
+
+                        <div class="product-image">
+
+                            <img
+                                src="images/luva-academia.jpg"
+                                alt="Luva para treino de academia"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Acessórios
+                            </span>
+
+                            <h3>Luva para Treino</h3>
+
+                            <div class="rating">
+                                ⭐⭐⭐⭐⭐ <span>(51 avaliações)</span>
+                            </div>
+
+                            <span class="price-old">
+                                R$ 79,90
+                            </span>
+
+                            <div class="price">
+                                R$ 59,90
+                            </div>
+
+                            <div class="installment">
+                                Consulte condições de pagamento
+                            </div>
+
+                            <a
+                                href="/produto/luva-treino"
+                                class="buy-btn"
+                                onclick="registrarConversao('product_click')"
+                            >
+                                Ver produto
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OFERTA -->
+
+        <section id="ofertas" class="offer">
+
+            <div class="container">
+
+                <div class="offer-box">
+
+                    <div>
+
+                        <h2>
+                            Ofertas selecionadas
+                        </h2>
+
+                        <p>
+                            Confira produtos com condições especiais
+                            enquanto houver disponibilidade.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="/ofertas"
+                        class="btn btn-light"
+                        onclick="registrarConversao('offer_click')"
+                    >
+                        Conferir ofertas
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOBRE -->
+
+        <section id="sobre" class="about">
+
+            <div class="container about-grid">
+
+                <div class="about-image">
+
+                    <img
+                        src="images/sobre-academia.jpg"
+                        alt="Pessoa utilizando equipamentos de treino"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Produtos pensados para sua rotina
+                    </h2>
+
+                    <p>
+                        Na FitStore, reunimos acessórios e equipamentos
+                        para diferentes tipos de treino e necessidades.
+                    </p>
+
+                    <p>
+                        Nosso objetivo é facilitar sua experiência de compra,
+                        oferecendo informações claras sobre os produtos,
+                        condições comerciais e formas de atendimento.
+                    </p>
+
+                    <ul class="check-list">
+
+                        <li>✓ Informações claras sobre os produtos</li>
+                        <li>✓ Diversas categorias fitness</li>
+                        <li>✓ Atendimento ao cliente</li>
+                        <li>✓ Pagamento através de ambiente seguro</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AVALIAÇÕES -->
+
+        <section class="reviews">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2>
+                        O que nossos clientes dizem
+                    </h2>
+
+                    <p>
+                        Experiências compartilhadas por clientes.
+                    </p>
+
+                </div>
+
+                <div class="review-grid">
+
+                    <div class="review">
+
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+
+                        <p>
+                            "Produto chegou bem embalado e dentro do prazo
+                            informado."
+                        </p>
+
+                        <strong>
+                            Cliente verificado
+                        </strong>
+
+                    </div>
+
+                    <div class="review">
+
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+
+                        <p>
+                            "Gostei da qualidade e o processo de compra foi
+                            simples."
+                        </p>
+
+                        <strong>
+                            Cliente verificado
+                        </strong>
+
+                    </div>
+
+                    <div class="review">
+
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+
+                        <p>
+                            "Atendimento rápido e produto conforme a
+                            descrição."
+                        </p>
+
+                        <strong>
+                            Cliente verificado
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+
+        <section id="faq">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2>
+                        Perguntas frequentes
+                    </h2>
+
+                    <p>
+                        Tire suas principais dúvidas antes de comprar.
+                    </p>
+
+                </div>
+
+                <div class="faq">
+
+                    <details>
+
+                        <summary>
+                            Quais formas de pagamento estão disponíveis?
+                        </summary>
+
+                        <p>
+                            As formas de pagamento disponíveis são apresentadas
+                            durante o processo de checkout.
+                        </p>
+
+                    </details>
+
+                    <details>
+
+                        <summary>
+                            Vocês entregam em todo o Brasil?
+                        </summary>
+
+                        <p>
+                            A disponibilidade de entrega e o prazo podem variar
+                            de acordo com o CEP informado.
+                        </p>
+
+                    </details>
+
+                    <details>
+
+                        <summary>
+                            Como acompanho meu pedido?
+                        </summary>
+
+                        <p>
+                            Após a confirmação do pedido, as informações de
+                            acompanhamento serão disponibilizadas conforme
+                            o método de envio utilizado.
+                        </p>
+
+                    </details>
+
+                    <details>
+
+                        <summary>
+                            Posso solicitar troca ou devolução?
+                        </summary>
+
+                        <p>
+                            Sim. Consulte nossa política de trocas e devoluções
+                            para conhecer os procedimentos e prazos aplicáveis.
+                        </p>
+
+                    </details>
+
+                    <details>
+
+                        <summary>
+                            Os produtos possuem garantia?
+                        </summary>
+
+                        <p>
+                            A garantia pode variar conforme o produto e o
+                            fabricante. Consulte a página específica do item.
+                        </p>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEWSLETTER -->
+
+        <section class="newsletter">
+
+            <div class="container">
+
+                <h2>
+                    Receba novidades e ofertas
+                </h2>
+
+                <p>
+                    Cadastre seu e-mail para receber informações da FitStore.
+                </p>
+
+                <form
+                    class="newsletter-form"
+                    onsubmit="cadastrarEmail(event)"
+                >
+
+                    <input
+                        type="email"
+                        placeholder="Seu melhor e-mail"
+                        required
+                        aria-label="Seu e-mail"
+                    >
+
+                    <button class="btn btn-primary" type="submit">
+                        Cadastrar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>FitStore</h3>
+
+                    <p>
+                        Produtos e acessórios para academia,
+                        treino e fitness.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Atendimento: segunda a sexta,
+                        das 9h às 18h.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h3>Comprar</h3>
+
+                    <a href="#produtos">Produtos</a>
+                    <a href="/ofertas">Ofertas</a>
+                    <a href="#categorias">Categorias</a>
+                    <a href="/rastrear-pedido">Rastrear pedido</a>
+
+                </div>
+
+                <div>
+
+                    <h3>Institucional</h3>
+
+                    <a href="/sobre">Sobre nós</a>
+                    <a href="/contato">Contato</a>
+                    <a href="/politica-privacidade">
+                        Política de Privacidade
+                    </a>
+
+                    <a href="/termos">
+                        Termos de Uso
+                    </a>
+
+                </div>
+
+                <div>
+
+                    <h3>Atendimento</h3>
+
+                    <a href="/trocas-e-devolucoes">
+                        Trocas e devoluções
+                    </a>
+
+                    <a href="/entrega">
+                        Entrega
+                    </a>
+
+                    <a href="/faq">
+                        Central de ajuda
+                    </a>
+
+                    <a href="mailto:contato@seusite.com.br">
+                        contato@seusite.com.br
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                © 2026 FitStore. Todos os direitos reservados.
+
+                <br><br>
+
+                Os produtos apresentados estão sujeitos à disponibilidade.
+                Preços, condições e prazos podem ser alterados sem aviso
+                prévio. Consulte as condições apresentadas no momento da compra.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- COOKIE CONSENT -->
+
+    <div class="cookie" id="cookieBox">
+
+        <p>
+            Utilizamos cookies e tecnologias semelhantes para melhorar
+            a experiência no site, analisar o uso da página e, quando
+            autorizado, medir campanhas publicitárias.
+        </p>
+
+        <div class="cookie-actions">
+
+            <button
+                class="btn btn-primary"
+                onclick="aceitarCookies()"
+            >
+                Aceitar
+            </button>
+
+            <button
+                class="btn btn-outline"
+                onclick="fecharCookies()"
+            >
+                Agora não
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /*
+         * ==========================================
+         * CONFIGURAÇÕES
+         * ==========================================
+         */
+
+        const CONFIG = {
+
+            /*
+             * Substitua pelos dados reais do seu negócio.
+             */
+
+            whatsapp:
+                "https://wa.me/5500000000000",
+
+            checkout:
+                "/checkout",
+
+            /*
+             * Caso utilize Google Ads,
+             * configure a tag no Google Tag Manager
+             * ou diretamente no site.
+             */
+
+            googleAdsId:
+                "AW-XXXXXXXXXX"
+
+        };
+
+
+        /*
+         * ==========================================
+         * COOKIE
+         * ==========================================
+         */
+
+        function mostrarCookie() {
+
+            const consent =
+                localStorage.getItem("cookieConsent");
+
+            if (!consent) {
+
+                document.getElementById("cookieBox")
+                    .style.display = "block";
+
+            }
+
+        }
+
+
+        function aceitarCookies() {
+
+            localStorage.setItem(
+                "cookieConsent",
+                "accepted"
+            );
+
+            document.getElementById("cookieBox")
+                .style.display = "none";
+
+        }
+
+
+        function fecharCookies() {
+
+            document.getElementById("cookieBox")
+                .style.display = "none";
+
+        }
+
+
+        /*
+         * ==========================================
+         * CONVERSÕES
+         * ==========================================
+         */
+
+        function registrarConversao(evento) {
+
+            /*
+             * Integre aqui com Google Ads,
+             * Google Tag Manager ou GA4.
+
+             * Exemplo conceitual:
+             *
+             * gtag('event', 'conversion', {
+             *     'send_to': 'AW-XXXXXXXXXX/XXXXXXXX'
+             * });
+             *
+             */
+
+            console.log(
+                "Evento:",
+                evento
+            );
+
+        }
+
+
+        /*
+         * ==========================================
+         * NEWSLETTER
+         * ==========================================
+         */
+
+        function cadastrarEmail(event) {
+
+            event.preventDefault();
+
+            const email =
+                event.target.querySelector("input").value;
+
+            /*
+             * Conecte este formulário ao seu
+             * sistema de e-mail / CRM.
+             */
+
+            alert(
+                "Cadastro realizado. Obrigado!"
+            );
+
+            registrarConversao(
+                "newsletter_signup"
+            );
+
+            event.target.reset();
+
+        }
+
+
+        /*
+         * ==========================================
+         * CARRINHO
+         * ==========================================
+         */
+
+        function abrirCarrinho() {
+
+            window.location.href =
+                "/carrinho";
+
+        }
+
+
+        /*
+         * ==========================================
+         * INICIALIZAÇÃO
+         * ==========================================
+         */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                mostrarCookie();
+
+            }
+        );
+
+    </script>
+
+
+    <!--
+    =====================================================
+    GOOGLE ADS / GOOGLE TAG
+
+    NÃO COLOQUE UMA TAG FICTÍCIA EM PRODUÇÃO.
+
+    Substitua AW-XXXXXXXXXX pelo seu ID real.
+
+    Exemplo de instalação oficial do Google:
+
+    <script async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX">
+    </script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag(){
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'AW-XXXXXXXXXX');
+    </script>
+
+    Para conversões, use o evento fornecido pelo
+    Google Ads para cada ação desejada.
+    =====================================================
+    -->
+
 </body>
 </html>
