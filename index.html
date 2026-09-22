@@ -2,349 +2,803 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
+
 <meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f4f8ff">
 
-<title>Consulta de Negociação de Dívidas</title>
-
-<meta name="description"
-content="Consulte informações disponíveis sobre negociação de dívidas. Página independente.">
+<title>Consulta de negociação de dívidas</title>
 
 <style>
 :root{
-    --blue:#071b3a;
-    --blue2:#0c3470;
-    --green:#16b979;
-    --green-dark:#07945e;
-    --yellow:#ffd229;
-    --white:#ffffff;
-    --text:#10213c;
-    --muted:#697588;
-    --light:#f4f7fb;
-    --border:#e6ebf2;
+    --blue:#0b2d69;
+    --blue2:#1559d6;
+    --green:#08b77a;
+    --green2:#04a66e;
+    --yellow:#ffc928;
+    --bg:#f4f8ff;
+    --text:#102d67;
+    --muted:#6680ad;
+    --border:#e1eaf7;
+    --white:#fff;
 }
 
 *{
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     margin:0;
     padding:0;
+    width:100%;
     min-height:100%;
-    font-family:Inter,Arial,Helvetica,sans-serif;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
 
 body{
     background:
-        radial-gradient(circle at 15% 10%,rgba(255,255,255,.12),transparent 28%),
-        linear-gradient(135deg,var(--blue),var(--blue2));
+        radial-gradient(
+            circle at 100% 10%,
+            rgba(42,130,255,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 0% 85%,
+            rgba(0,190,130,.10),
+            transparent 30%
+        ),
+        var(--bg);
+
     color:var(--text);
 }
+
+/* =========================
+   PÁGINA
+========================= */
 
 .page{
     width:100%;
-    max-width:650px;
+    max-width:500px;
+    min-height:100svh;
     margin:auto;
-    padding:28px 20px 35px;
+    padding:16px 13px 25px;
 }
 
-/* TOPO */
+/* =========================
+   TOPO
+========================= */
 
-.top{
-    text-align:center;
-    color:white;
-    margin-bottom:18px;
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 6px 18px;
 }
 
-.top-badge{
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #08bd7d,
+            #1262db
+        );
+
+    color:#fff;
+    font-size:25px;
+    font-weight:900;
+
+    box-shadow:
+        0 8px 20px rgba(21,89,214,.20);
+}
+
+.brand-name{
+    line-height:1;
+}
+
+.brand-name small{
+    display:block;
+    margin-bottom:4px;
+
+    color:#496b9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.8px;
+}
+
+.brand-name strong{
+    display:block;
+    font-size:17px;
+    font-weight:900;
+    letter-spacing:-.5px;
+}
+
+.security{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#5072a7;
+    font-size:10px;
+    font-weight:700;
+}
+
+/* =========================
+   PROGRESSO
+========================= */
+
+.progress-area{
+    padding:0 5px 18px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:9px;
+
+    color:#6680ad;
+    font-size:11px;
+    font-weight:800;
+}
+
+.progress-bar{
+    width:100%;
+    height:7px;
+
+    overflow:hidden;
+    border-radius:20px;
+    background:#dfe9f7;
+}
+
+.progress-fill{
+    width:33.33%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #08b77a,
+            #19cf91
+        );
+
+    animation:progress .9s ease-out;
+}
+
+@keyframes progress{
+    from{width:0}
+    to{width:33.33%}
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.97);
+
+    border:1px solid rgba(219,229,244,.8);
+    border-radius:27px;
+
+    box-shadow:
+        0 20px 55px rgba(35,74,130,.12),
+        0 3px 10px rgba(35,74,130,.05);
+
+    animation:
+        cardIn .65s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    padding:28px 20px 20px;
+}
+
+.badge{
     display:inline-flex;
     align-items:center;
     gap:7px;
-    padding:8px 14px;
-    border:1px solid rgba(255,255,255,.18);
+
+    padding:8px 13px;
+
     border-radius:50px;
-    background:rgba(255,255,255,.08);
-    font-size:12px;
-    font-weight:700;
+
+    background:#e7fbf3;
+    color:#069865;
+
+    font-size:11px;
+    font-weight:900;
     letter-spacing:.3px;
 }
 
-.status-dot{
-    width:8px;
-    height:8px;
+.badge-dot{
+    width:7px;
+    height:7px;
+
     border-radius:50%;
-    background:#27d68e;
-    box-shadow:0 0 0 4px rgba(39,214,142,.13);
-}
+    background:#08b77a;
 
-/* CARD */
-
-.card{
-    background:rgba(255,255,255,.98);
-    border-radius:30px;
-    overflow:hidden;
     box-shadow:
-        0 25px 70px rgba(0,0,0,.24),
-        0 4px 15px rgba(0,0,0,.08);
+        0 0 0 4px rgba(8,183,122,.12);
+
+    animation:pulse 1.8s infinite;
 }
 
-/* CABEÇALHO */
+@keyframes pulse{
+    0%,100%{
+        box-shadow:
+            0 0 0 4px rgba(8,183,122,.10);
+    }
 
-.card-header{
-    padding:30px 30px 24px;
-    background:linear-gradient(135deg,#ffffff,#f5faf8);
-    border-bottom:1px solid var(--border);
+    50%{
+        box-shadow:
+            0 0 0 8px rgba(8,183,122,0);
+    }
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+.hero h1{
+    margin:18px 0 0;
 
-.logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,var(--green),var(--green-dark));
-    color:white;
-    font-size:24px;
-    font-weight:900;
-    box-shadow:0 8px 18px rgba(22,185,121,.25);
-}
-
-.logo-text strong{
-    display:block;
-    color:var(--blue);
-    font-size:18px;
-    line-height:1.1;
-}
-
-.logo-text span{
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* CONTEÚDO */
-
-.content{
-    padding:34px 30px 30px;
-    text-align:center;
-}
-
-.eyebrow{
-    display:inline-block;
-    color:var(--green-dark);
-    background:#e9faf3;
-    border-radius:30px;
-    padding:7px 13px;
-    font-size:12px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-}
-
-h1{
-    margin:20px auto 0;
-    max-width:520px;
-    color:var(--text);
-    font-size:43px;
+    font-size:39px;
     line-height:1.02;
     letter-spacing:-1.8px;
-    font-weight:900;
+
+    font-weight:950;
+
+    color:var(--blue);
 }
 
-.description{
-    margin:18px auto 0;
-    max-width:480px;
+.hero h1 span{
+    color:var(--blue2);
+}
+
+.hero p{
+    margin:15px 0 0;
+
     color:var(--muted);
-    font-size:19px;
-    line-height:1.5;
+
+    font-size:17px;
+    line-height:1.45;
 }
 
-/* INFORMAÇÕES */
+/* =========================
+   ILUSTRAÇÃO
+========================= */
 
-.info-list{
-    margin:28px 0 0;
-    display:grid;
-    gap:10px;
-    text-align:left;
-}
+.illustration{
+    position:relative;
 
-.info{
+    height:165px;
+    margin:20px 0 4px;
+
     display:flex;
+    justify-content:center;
     align-items:center;
-    gap:13px;
-    padding:14px;
-    border:1px solid var(--border);
-    border-radius:15px;
-    background:#fafcfe;
 }
 
-.info-icon{
-    flex:none;
+.blob{
+    position:absolute;
+
+    width:155px;
+    height:155px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9faec,
+            #dbeaff
+        );
+
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.phone{
+    position:relative;
+    z-index:2;
+
+    width:105px;
+    height:155px;
+
+    border:7px solid #1760d9;
+    border-radius:23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f9fcff,
+            #e7f0ff
+        );
+
+    transform:
+        rotate(7deg);
+
+    box-shadow:
+        0 17px 30px rgba(20,83,180,.22);
+
+    animation:phoneIn .8s ease-out;
+}
+
+@keyframes phoneIn{
+    from{
+        opacity:0;
+        transform:
+            rotate(14deg)
+            translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            rotate(7deg)
+            translateY(0);
+    }
+}
+
+.phone-notch{
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    width:42px;
+    height:12px;
+
+    transform:translateX(-50%);
+
+    border-radius:0 0 10px 10px;
+
+    background:#1760d9;
+}
+
+.phone-content{
+    position:absolute;
+
+    left:13px;
+    right:13px;
+    top:40px;
+
+    height:70px;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    box-shadow:
+        0 4px 12px rgba(30,70,130,.08);
+}
+
+.check{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
     width:38px;
     height:38px;
+
+    transform:translate(-50%,-50%);
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:11px;
-    background:#edf9f4;
-    color:var(--green-dark);
+
+    border-radius:50%;
+
+    background:#16bd7d;
+    color:#fff;
+
+    font-size:20px;
     font-weight:900;
 }
 
-.info strong{
-    display:block;
-    font-size:14px;
-    color:var(--text);
+.shield{
+    position:absolute;
+
+    z-index:3;
+
+    right:55px;
+    bottom:8px;
+
+    width:57px;
+    height:57px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #11c88a,
+            #04a86e
+        );
+
+    color:#fff;
+
+    font-size:26px;
+
+    box-shadow:
+        0 10px 22px rgba(4,168,110,.25);
+
+    animation:shieldIn .8s .15s both;
 }
 
-.info small{
-    display:block;
-    margin-top:2px;
-    font-size:12px;
-    color:var(--muted);
+@keyframes shieldIn{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
-/* BOTÃO */
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.features{
+    margin-top:14px;
+
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:9px;
+}
+
+.feature{
+    padding:15px 11px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    background:#f8fbff;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.feature:active{
+    transform:scale(.98);
+}
+
+.feature-icon{
+    width:39px;
+    height:39px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    font-size:18px;
+    font-weight:900;
+}
+
+.feature:nth-child(1) .feature-icon{
+    background:#e5edff;
+    color:#2865d8;
+}
+
+.feature:nth-child(2) .feature-icon{
+    background:#e5faf2;
+    color:#08a970;
+}
+
+.feature:nth-child(3) .feature-icon{
+    background:#fff4d6;
+    color:#e7a900;
+}
+
+.feature:nth-child(4) .feature-icon{
+    background:#eee8ff;
+    color:#7446d9;
+}
+
+.feature strong{
+    display:block;
+
+    margin-top:9px;
+
+    font-size:13px;
+    line-height:1.2;
+
+    color:var(--blue);
+}
+
+.feature small{
+    display:block;
+
+    margin-top:4px;
+
+    font-size:10px;
+    line-height:1.3;
+
+    color:#7185a7;
+}
+
+/* =========================
+   CTA
+========================= */
 
 .cta{
-    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:13px;
+    gap:10px;
+
     width:100%;
-    min-height:72px;
-    margin-top:25px;
-    padding:15px 20px;
-    border-radius:17px;
-    background:linear-gradient(135deg,#ffd83c,#ffc400);
-    color:#111;
+    min-height:64px;
+
+    margin-top:20px;
+    padding:10px 16px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #08c88a,
+            #04aa71
+        );
+
+    color:#fff;
     text-decoration:none;
-    font-size:19px;
+
+    font-size:17px;
     font-weight:900;
-    box-shadow:0 12px 28px rgba(255,196,0,.28);
+
+    box-shadow:
+        0 13px 28px rgba(4,174,117,.27);
+
     transition:
         transform .18s ease,
-        box-shadow .18s ease,
-        filter .18s ease;
+        box-shadow .18s ease;
 }
 
-.cta:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.02);
-    box-shadow:0 16px 32px rgba(255,196,0,.34);
+.cta:active{
+    transform:scale(.98);
 }
 
 .cta-arrow{
-    width:32px;
-    height:32px;
-    border-radius:50%;
+    width:34px;
+    height:34px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(0,0,0,.08);
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
     font-size:20px;
 }
 
+/* =========================
+   TEMPO
+========================= */
+
 .time{
-    margin:13px 0 0;
-    color:#8b95a3;
-    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+
+    margin:12px 0 0;
+
+    color:#6680ad;
+
+    font-size:11px;
+    font-weight:700;
 }
 
-/* AVISO */
+/* =========================
+   AVISO
+========================= */
 
 .warning{
-    margin-top:26px;
-    padding:15px;
+    display:flex;
+    gap:10px;
+
+    margin-top:19px;
+    padding:13px;
+
+    border:1px solid #f1df9e;
     border-radius:15px;
-    background:#f7f8fa;
-    border:1px solid #e5e8ed;
-    text-align:left;
-    color:#707987;
-    font-size:11px;
-    line-height:1.55;
-}
 
-.warning strong{
-    color:#465161;
-}
+    background:#fffaf0;
 
-/* RODAPÉ */
+    color:#69717c;
 
-.footer{
-    padding:18px 25px 22px;
-    text-align:center;
-    background:#fafbfc;
-    border-top:1px solid var(--border);
-    color:#8a929e;
     font-size:10px;
     line-height:1.5;
 }
 
-.footer a{
-    color:#596474;
+.warning-icon{
+    flex:none;
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#fff0bd;
+
+    color:#c38b00;
+
+    font-weight:900;
 }
 
-/* MOBILE */
+.warning strong{
+    color:#45505f;
+}
 
-@media(max-width:480px){
+/* =========================
+   RODAPÉ
+========================= */
+
+.footer{
+    padding:18px 18px 20px;
+
+    text-align:center;
+
+    border-top:1px solid var(--border);
+
+    color:#7186a8;
+
+    font-size:9px;
+    line-height:1.5;
+}
+
+/* =========================
+   INDICADOR
+========================= */
+
+.steps{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+
+    margin-top:13px;
+}
+
+.step{
+    width:24px;
+    height:5px;
+
+    border-radius:20px;
+
+    background:#dce6f4;
+}
+
+.step.active{
+    width:37px;
+    background:#08b77a;
+}
+
+/* =========================
+   MOBILE PEQUENO
+========================= */
+
+@media(max-width:360px){
 
     .page{
-        padding:18px 14px 25px;
+        padding:10px 10px 20px;
     }
 
-    .card{
-        border-radius:24px;
+    .hero{
+        padding:23px 17px 17px;
     }
 
-    .card-header{
-        padding:24px 22px 20px;
+    .hero h1{
+        font-size:34px;
     }
 
-    .content{
-        padding:28px 20px 23px;
+    .hero p{
+        font-size:15px;
     }
 
-    h1{
-        font-size:37px;
-        letter-spacing:-1.5px;
+    .illustration{
+        height:145px;
     }
 
-    .description{
-        font-size:17px;
+    .phone{
+        width:92px;
+        height:138px;
+    }
+
+    .blob{
+        width:135px;
+        height:135px;
+    }
+
+    .shield{
+        right:42px;
+        width:50px;
+        height:50px;
+    }
+
+    .feature{
+        padding:12px 8px;
+    }
+
+    .feature strong{
+        font-size:12px;
     }
 
     .cta{
-        min-height:68px;
-        font-size:18px;
-    }
-
-    .info{
-        padding:12px;
-    }
-}
-
-@media(max-width:350px){
-
-    h1{
-        font-size:32px;
-    }
-
-    .description{
-        font-size:16px;
-    }
-
-    .logo-text strong{
-        font-size:16px;
+        font-size:15px;
     }
 }
 </style>
@@ -354,74 +808,168 @@ h1{
 
 <main class="page">
 
-    <div class="top">
-        <div class="top-badge">
-            <span class="status-dot"></span>
-            Consulta disponível
+    <!-- TOPO -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                D
+            </div>
+
+            <div class="brand-name">
+                <small>CONSULTA</small>
+                <strong>Negociação de dívidas</strong>
+            </div>
+
         </div>
-    </div>
+
+        <div class="security">
+            🔒 Seguro
+        </div>
+
+    </header>
+
+
+    <!-- PROGRESSO -->
+
+    <section class="progress-area">
+
+        <div class="progress-top">
+            <span>Etapa 1 de 3</span>
+            <span>33%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+    </section>
+
+
+    <!-- CARD -->
 
     <section class="card">
 
-        <header class="card-header">
+        <div class="hero">
 
-            <div class="logo">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                CONSULTA ONLINE
+            </div>
 
-                <div class="logo-icon">
+
+            <h1>
+                Já começou a
+                <span>desenrolar?</span>
+            </h1>
+
+
+            <p>
+                Consulte as informações disponíveis
+                e confira as opções de negociação.
+            </p>
+
+
+            <!-- ILUSTRAÇÃO -->
+
+            <div class="illustration">
+
+                <div class="blob"></div>
+
+                <div class="phone">
+
+                    <div class="phone-notch"></div>
+
+                    <div class="phone-content">
+                        <div class="check">✓</div>
+                    </div>
+
+                </div>
+
+                <div class="shield">
                     ✓
                 </div>
 
-                <div class="logo-text">
-                    <strong>Consulta de Dívidas</strong>
-                    <span>Informações sobre negociação</span>
+            </div>
+
+
+            <!-- BENEFÍCIOS -->
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ⌕
+                    </div>
+
+                    <strong>
+                        Consulte
+                    </strong>
+
+                    <small>
+                        Veja as informações disponíveis
+                    </small>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <strong>
+                        Negocie
+                    </strong>
+
+                    <small>
+                        Confira as opções disponíveis
+                    </small>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ◷
+                    </div>
+
+                    <strong>
+                        Economize tempo
+                    </strong>
+
+                    <small>
+                        Processo simples e online
+                    </small>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ◆
+                    </div>
+
+                    <strong>
+                        Mais segurança
+                    </strong>
+
+                    <small>
+                        Confira o domínio antes de prosseguir
+                    </small>
+
                 </div>
 
             </div>
 
-        </header>
 
-        <div class="content">
-
-            <div class="eyebrow">
-                Consulta online
-            </div>
-
-            <h1>
-                Veja as informações disponíveis para você
-            </h1>
-
-            <p class="description">
-                Acesse a consulta e confira as opções disponíveis
-                para negociação de dívidas.
-            </p>
-
-            <div class="info-list">
-
-                <div class="info">
-                    <div class="info-icon">✓</div>
-                    <div>
-                        <strong>Consulta simples</strong>
-                        <small>Processo rápido e online</small>
-                    </div>
-                </div>
-
-                <div class="info">
-                    <div class="info-icon">⌕</div>
-                    <div>
-                        <strong>Verifique suas informações</strong>
-                        <small>Confira os dados antes de prosseguir</small>
-                    </div>
-                </div>
-
-                <div class="info">
-                    <div class="info-icon">↗</div>
-                    <div>
-                        <strong>Acesso seguro</strong>
-                        <small>Confirme sempre o endereço do site</small>
-                    </div>
-                </div>
-
-            </div>
+            <!-- BOTÃO -->
 
             <a
                 class="cta"
@@ -429,27 +977,63 @@ h1{
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <span>Continuar para a consulta</span>
-                <span class="cta-arrow">→</span>
+
+                <span>
+                    Prosseguir para a consulta
+                </span>
+
+                <span class="cta-arrow">
+                    →
+                </span>
+
             </a>
 
-            <p class="time">
-                ⏱ Processo estimado: menos de 2 minutos
-            </p>
+
+            <div class="time">
+                ⏱ Consulta em menos de 2 minutos
+            </div>
+
+
+            <!-- AVISO -->
 
             <div class="warning">
-                <strong>Importante:</strong>
-                esta é uma página independente e não representa,
-                por si só, um canal oficial do Governo Federal.
-                Verifique cuidadosamente o domínio e a origem da
-                página antes de informar dados pessoais.
+
+                <div class="warning-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <strong>Importante:</strong>
+
+                    esta é uma página independente e não
+                    representa, por si só, um canal oficial
+                    do Governo Federal.
+
+                    Verifique a origem e o domínio antes
+                    de fornecer dados pessoais.
+
+                </div>
+
             </div>
 
         </div>
 
+
+        <!-- FOOTER -->
+
         <footer class="footer">
-            Consulte também os canais oficiais do Governo Federal
-            antes de compartilhar informações pessoais.
+
+            Consulte informações oficiais diretamente
+            em canais governamentais antes de compartilhar
+            dados pessoais.
+
+            <div class="steps">
+                <span class="step active"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
         </footer>
 
     </section>
