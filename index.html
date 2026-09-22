@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0, user-scalable=no">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
 
 <meta name="robots" content="index,follow">
+
+<meta
+    name="description"
+    content="Página independente para consulta de informações sobre negociação de dívidas."
+>
+
 <meta name="theme-color" content="#f4f8ff">
 
 <title>Consulta de negociação de dívidas</title>
 
- <!-- BOTÃO -->
-
-            <a
-                class="cta"
-                href="https://elegant-desenrola.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-
 <style>
+
 :root{
     --blue:#0b2d69;
-    --blue2:#1559d6;
+    --blue-light:#1559d6;
     --green:#08b77a;
-    --green2:#04a66e;
+    --green-dark:#04a66e;
     --yellow:#ffc928;
+
     --bg:#f4f8ff;
+    --white:#ffffff;
+
     --text:#102d67;
     --muted:#6680ad;
+
     --border:#e1eaf7;
-    --white:#fff;
 }
 
 *{
@@ -38,11 +43,17 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     margin:0;
     padding:0;
+
     width:100%;
-    min-height:100%;
+    min-height:100vh;
+
     font-family:
         Inter,
         -apple-system,
@@ -50,46 +61,58 @@ html,body{
         "Segoe UI",
         Arial,
         sans-serif;
-}
 
-body{
+    color:var(--text);
+
     background:
         radial-gradient(
-            circle at 100% 10%,
+            circle at 100% 8%,
             rgba(42,130,255,.12),
-            transparent 30%
+            transparent 28%
         ),
         radial-gradient(
             circle at 0% 85%,
             rgba(0,190,130,.10),
-            transparent 30%
+            transparent 28%
         ),
         var(--bg);
 
-    color:var(--text);
+    padding-bottom:95px;
 }
 
-/* =========================
+
+/* =========================================
    PÁGINA
-========================= */
+========================================= */
 
 .page{
     width:100%;
     max-width:500px;
+
     min-height:100svh;
+
     margin:auto;
-    padding:16px 13px 25px;
+
+    padding:
+        12px
+        12px
+        30px;
 }
 
-/* =========================
-   TOPO
-========================= */
+
+/* =========================================
+   CABEÇALHO
+========================================= */
 
 .header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:8px 6px 18px;
+
+    padding:
+        8px
+        5px
+        17px;
 }
 
 .brand{
@@ -99,86 +122,105 @@ body{
 }
 
 .brand-icon{
-    width:46px;
-    height:46px;
-    border-radius:14px;
+    width:45px;
+    height:45px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    border-radius:14px;
+
     background:
         linear-gradient(
             135deg,
-            #08bd7d,
-            #1262db
+            var(--green),
+            var(--blue-light)
         );
 
     color:#fff;
-    font-size:25px;
+
+    font-size:22px;
     font-weight:900;
 
     box-shadow:
-        0 8px 20px rgba(21,89,214,.20);
+        0 8px 20px
+        rgba(21,89,214,.20);
 }
 
-.brand-name{
-    line-height:1;
+.brand-text{
+    line-height:1.05;
 }
 
-.brand-name small{
+.brand-text small{
     display:block;
+
     margin-bottom:4px;
 
-    color:#496b9e;
-    font-size:10px;
+    color:#607ba7;
+
+    font-size:9px;
     font-weight:800;
-    letter-spacing:.8px;
+
+    letter-spacing:.7px;
+    text-transform:uppercase;
 }
 
-.brand-name strong{
+.brand-text strong{
     display:block;
-    font-size:17px;
+
+    color:var(--blue);
+
+    font-size:16px;
     font-weight:900;
-    letter-spacing:-.5px;
+
+    letter-spacing:-.3px;
 }
 
 .security{
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:5px;
 
-    color:#5072a7;
+    color:#5876a5;
+
     font-size:10px;
     font-weight:700;
 }
 
-/* =========================
+
+/* =========================================
    PROGRESSO
-========================= */
+========================================= */
 
 .progress-area{
-    padding:0 5px 18px;
+    padding:
+        0
+        5px
+        18px;
 }
 
-.progress-top{
+.progress-info{
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 
-    color:#6680ad;
+    color:#6a82aa;
+
     font-size:11px;
     font-weight:800;
 }
 
-.progress-bar{
+.progress{
     width:100%;
     height:7px;
 
     overflow:hidden;
+
     border-radius:20px;
+
     background:#dfe9f7;
 }
 
@@ -195,25 +237,38 @@ body{
             #19cf91
         );
 
-    animation:progress .9s ease-out;
+    animation:
+        progressIn .9s ease-out;
 }
 
-@keyframes progress{
-    from{width:0}
-    to{width:33.33%}
+@keyframes progressIn{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:33.33%;
+    }
 }
 
-/* =========================
+
+/* =========================================
    CARD
-========================= */
+========================================= */
 
 .card{
     position:relative;
+
     overflow:hidden;
 
-    background:rgba(255,255,255,.97);
+    background:
+        rgba(255,255,255,.98);
 
-    border:1px solid rgba(219,229,244,.8);
+    border:
+        1px solid
+        rgba(219,229,244,.85);
+
     border-radius:27px;
 
     box-shadow:
@@ -221,10 +276,12 @@ body{
         0 3px 10px rgba(35,74,130,.05);
 
     animation:
-        cardIn .65s cubic-bezier(.2,.8,.2,1);
+        cardIn .65s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes cardIn{
+
     from{
         opacity:0;
         transform:translateY(18px);
@@ -236,13 +293,16 @@ body{
     }
 }
 
-/* =========================
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero{
-    position:relative;
-    padding:28px 20px 20px;
+    padding:
+        27px
+        19px
+        20px;
 }
 
 .badge{
@@ -250,16 +310,20 @@ body{
     align-items:center;
     gap:7px;
 
-    padding:8px 13px;
+    padding:
+        8px
+        13px;
 
     border-radius:50px;
 
     background:#e7fbf3;
+
     color:#069865;
 
     font-size:11px;
     font-weight:900;
-    letter-spacing:.3px;
+
+    letter-spacing:.25px;
 }
 
 .badge-dot{
@@ -267,71 +331,84 @@ body{
     height:7px;
 
     border-radius:50%;
-    background:#08b77a;
+
+    background:var(--green);
 
     box-shadow:
-        0 0 0 4px rgba(8,183,122,.12);
+        0 0 0 4px
+        rgba(8,183,122,.11);
 
-    animation:pulse 1.8s infinite;
+    animation:
+        pulse 1.8s infinite;
 }
 
 @keyframes pulse{
+
     0%,100%{
         box-shadow:
-            0 0 0 4px rgba(8,183,122,.10);
+            0 0 0 4px
+            rgba(8,183,122,.10);
     }
 
     50%{
         box-shadow:
-            0 0 0 8px rgba(8,183,122,0);
+            0 0 0 8px
+            rgba(8,183,122,0);
     }
 }
 
-.hero h1{
-    margin:18px 0 0;
+h1{
+    margin:
+        18px 0 0;
+
+    color:var(--blue);
 
     font-size:39px;
     line-height:1.02;
+
     letter-spacing:-1.8px;
 
     font-weight:950;
-
-    color:var(--blue);
 }
 
-.hero h1 span{
-    color:var(--blue2);
+h1 span{
+    color:var(--blue-light);
 }
 
-.hero p{
-    margin:15px 0 0;
+.intro{
+    margin:
+        15px 0 0;
 
     color:var(--muted);
 
     font-size:17px;
-    line-height:1.45;
+    line-height:1.48;
 }
 
-/* =========================
+
+/* =========================================
    ILUSTRAÇÃO
-========================= */
+========================================= */
 
 .illustration{
     position:relative;
 
-    height:165px;
-    margin:20px 0 4px;
+    height:160px;
+
+    margin:
+        18px 0
+        2px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
 .blob{
     position:absolute;
 
-    width:155px;
-    height:155px;
+    width:150px;
+    height:150px;
 
     border-radius:50%;
 
@@ -342,10 +419,14 @@ body{
             #dbeaff
         );
 
-    animation:float 5s ease-in-out infinite;
+    animation:
+        float 5s
+        ease-in-out
+        infinite;
 }
 
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -359,10 +440,13 @@ body{
     position:relative;
     z-index:2;
 
-    width:105px;
-    height:155px;
+    width:104px;
+    height:151px;
 
-    border:7px solid #1760d9;
+    border:
+        7px solid
+        #1760d9;
+
     border-radius:23px;
 
     background:
@@ -372,25 +456,29 @@ body{
             #e7f0ff
         );
 
-    transform:
-        rotate(7deg);
+    transform:rotate(7deg);
 
     box-shadow:
-        0 17px 30px rgba(20,83,180,.22);
+        0 17px 30px
+        rgba(20,83,180,.22);
 
-    animation:phoneIn .8s ease-out;
+    animation:
+        phoneIn .8s ease-out;
 }
 
 @keyframes phoneIn{
+
     from{
         opacity:0;
+
         transform:
-            rotate(14deg)
+            rotate(15deg)
             translateY(12px);
     }
 
     to{
         opacity:1;
+
         transform:
             rotate(7deg)
             translateY(0);
@@ -400,15 +488,17 @@ body{
 .phone-notch{
     position:absolute;
 
-    top:0;
+    top:-1px;
     left:50%;
 
-    width:42px;
+    width:41px;
     height:12px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    border-radius:0 0 10px 10px;
+    border-radius:
+        0 0 10px 10px;
 
     background:#1760d9;
 }
@@ -416,9 +506,9 @@ body{
 .phone-content{
     position:absolute;
 
-    left:13px;
-    right:13px;
-    top:40px;
+    left:12px;
+    right:12px;
+    top:39px;
 
     height:70px;
 
@@ -427,27 +517,35 @@ body{
     background:#fff;
 
     box-shadow:
-        0 4px 12px rgba(30,70,130,.08);
+        0 4px 12px
+        rgba(30,70,130,.08);
 }
 
 .check{
     position:absolute;
 
-    left:50%;
     top:50%;
+    left:50%;
 
     width:38px;
     height:38px;
-
-    transform:translate(-50%,-50%);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    transform:
+        translate(-50%,-50%);
+
     border-radius:50%;
 
-    background:#16bd7d;
+    background:
+        linear-gradient(
+            135deg,
+            #18c989,
+            #08a96e
+        );
+
     color:#fff;
 
     font-size:20px;
@@ -459,11 +557,11 @@ body{
 
     z-index:3;
 
-    right:55px;
+    right:52px;
     bottom:8px;
 
-    width:57px;
-    height:57px;
+    width:56px;
+    height:56px;
 
     display:flex;
     align-items:center;
@@ -480,15 +578,18 @@ body{
 
     color:#fff;
 
-    font-size:26px;
+    font-size:25px;
 
     box-shadow:
-        0 10px 22px rgba(4,168,110,.25);
+        0 10px 22px
+        rgba(4,168,110,.25);
 
-    animation:shieldIn .8s .15s both;
+    animation:
+        shieldIn .8s .15s both;
 }
 
 @keyframes shieldIn{
+
     from{
         opacity:0;
         transform:scale(.7);
@@ -500,33 +601,39 @@ body{
     }
 }
 
-/* =========================
+
+/* =========================================
    BENEFÍCIOS
-========================= */
+========================================= */
 
 .features{
-    margin-top:14px;
-
     display:grid;
+
     grid-template-columns:
         repeat(2,1fr);
 
     gap:9px;
+
+    margin-top:8px;
 }
 
 .feature{
-    padding:15px 11px;
+    padding:
+        14px
+        10px;
 
     text-align:center;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
+
     border-radius:16px;
 
     background:#f8fbff;
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform .2s ease;
 }
 
 .feature:active{
@@ -549,22 +656,26 @@ body{
     font-weight:900;
 }
 
-.feature:nth-child(1) .feature-icon{
+.feature:nth-child(1)
+.feature-icon{
     background:#e5edff;
     color:#2865d8;
 }
 
-.feature:nth-child(2) .feature-icon{
+.feature:nth-child(2)
+.feature-icon{
     background:#e5faf2;
     color:#08a970;
 }
 
-.feature:nth-child(3) .feature-icon{
+.feature:nth-child(3)
+.feature-icon{
     background:#fff4d6;
     color:#e7a900;
 }
 
-.feature:nth-child(4) .feature-icon{
+.feature:nth-child(4)
+.feature-icon{
     background:#eee8ff;
     color:#7446d9;
 }
@@ -572,12 +683,12 @@ body{
 .feature strong{
     display:block;
 
-    margin-top:9px;
+    margin-top:8px;
+
+    color:var(--blue);
 
     font-size:13px;
     line-height:1.2;
-
-    color:var(--blue);
 }
 
 .feature small{
@@ -585,27 +696,30 @@ body{
 
     margin-top:4px;
 
+    color:#7185a7;
+
     font-size:10px;
     line-height:1.3;
-
-    color:#7185a7;
 }
 
-/* =========================
-   CTA
-========================= */
+
+/* =========================================
+   BOTÃO PRINCIPAL
+========================================= */
 
 .cta{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
+    gap:9px;
 
     width:100%;
     min-height:64px;
 
     margin-top:20px;
-    padding:10px 16px;
+    padding:
+        10px
+        15px;
 
     border-radius:18px;
 
@@ -617,13 +731,15 @@ body{
         );
 
     color:#fff;
+
     text-decoration:none;
 
     font-size:17px;
     font-weight:900;
 
     box-shadow:
-        0 13px 28px rgba(4,174,117,.27);
+        0 13px 28px
+        rgba(4,174,117,.27);
 
     transition:
         transform .18s ease,
@@ -644,22 +760,25 @@ body{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.18);
+    background:
+        rgba(255,255,255,.18);
 
     font-size:20px;
 }
 
-/* =========================
+
+/* =========================================
    TEMPO
-========================= */
+========================================= */
 
 .time{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:7px;
+    gap:6px;
 
-    margin:12px 0 0;
+    margin:
+        12px 0 0;
 
     color:#6680ad;
 
@@ -667,18 +786,23 @@ body{
     font-weight:700;
 }
 
-/* =========================
+
+/* =========================================
    AVISO
-========================= */
+========================================= */
 
 .warning{
     display:flex;
     gap:10px;
 
     margin-top:19px;
+
     padding:13px;
 
-    border:1px solid #f1df9e;
+    border:
+        1px solid
+        #f1df9e;
+
     border-radius:15px;
 
     background:#fffaf0;
@@ -705,6 +829,7 @@ body{
 
     color:#c38b00;
 
+    font-size:15px;
     font-weight:900;
 }
 
@@ -712,26 +837,28 @@ body{
     color:#45505f;
 }
 
-/* =========================
-   RODAPÉ
-========================= */
+
+/* =========================================
+   FOOTER
+========================================= */
 
 .footer{
-    padding:18px 18px 20px;
+    padding:
+        18px
+        17px
+        20px;
+
+    border-top:
+        1px solid
+        var(--border);
 
     text-align:center;
-
-    border-top:1px solid var(--border);
 
     color:#7186a8;
 
     font-size:9px;
     line-height:1.5;
 }
-
-/* =========================
-   INDICADOR
-========================= */
 
 .steps{
     display:flex;
@@ -752,28 +879,151 @@ body{
 
 .step.active{
     width:37px;
+
     background:#08b77a;
 }
 
-/* =========================
+
+/* =========================================
+   BOTÃO FLUTUANTE DE ACESSO
+========================================= */
+
+.floating-link{
+    position:fixed;
+
+    left:50%;
+    bottom:18px;
+
+    z-index:9999;
+
+    width:
+        calc(100% - 28px);
+
+    max-width:470px;
+
+    min-height:58px;
+
+    transform:
+        translateX(-50%);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:
+        10px
+        16px;
+
+    border:0;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #08c88a,
+            #04aa71
+        );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:900;
+
+    box-shadow:
+        0 12px 30px
+        rgba(4,174,117,.35);
+
+    animation:
+        floatingIn .7s
+        cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+@keyframes floatingIn{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateX(-50%)
+            translateY(25px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+}
+
+.floating-link:hover{
+    box-shadow:
+        0 16px 35px
+        rgba(4,174,117,.42);
+}
+
+.floating-link:active{
+    transform:
+        translateX(-50%)
+        scale(.97);
+}
+
+.floating-link-icon{
+    width:34px;
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.18);
+
+    font-size:20px;
+}
+
+.floating-link-arrow{
+    font-size:21px;
+}
+
+
+/* =========================================
    MOBILE PEQUENO
-========================= */
+========================================= */
 
 @media(max-width:360px){
 
     .page{
-        padding:10px 10px 20px;
+        padding:
+            9px
+            9px
+            22px;
     }
 
     .hero{
-        padding:23px 17px 17px;
+        padding:
+            23px
+            16px
+            17px;
     }
 
-    .hero h1{
+    h1{
         font-size:34px;
     }
 
-    .hero p{
+    .intro{
         font-size:15px;
     }
 
@@ -781,24 +1031,27 @@ body{
         height:145px;
     }
 
-    .phone{
-        width:92px;
-        height:138px;
-    }
-
     .blob{
         width:135px;
         height:135px;
     }
 
+    .phone{
+        width:92px;
+        height:138px;
+    }
+
     .shield{
         right:42px;
+
         width:50px;
         height:50px;
     }
 
     .feature{
-        padding:12px 8px;
+        padding:
+            12px
+            8px;
     }
 
     .feature strong{
@@ -808,15 +1061,62 @@ body{
     .cta{
         font-size:15px;
     }
+
+    .floating-link{
+        width:
+            calc(100% - 22px);
+
+        bottom:12px;
+
+        min-height:54px;
+
+        border-radius:16px;
+
+        font-size:14px;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================
+     BOTÃO FLUTUANTE
+========================================= -->
+
+<a
+    class="floating-link"
+    href="https://elegant-desenrola.netlify.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Acessar consulta"
+>
+
+    <span class="floating-link-icon">
+        ↗
+    </span>
+
+    <span>
+        Acessar consulta
+    </span>
+
+    <span class="floating-link-arrow">
+        →
+    </span>
+
+</a>
+
 
 <main class="page">
 
-    <!-- TOPO -->
+
+    <!-- =====================================
+         CABEÇALHO
+    ====================================== -->
 
     <header class="header">
 
@@ -826,12 +1126,20 @@ body{
                 D
             </div>
 
-            <div class="brand-name">
-                <small>CONSULTA</small>
-                <strong>Negociação de dívidas</strong>
+            <div class="brand-text">
+
+                <small>
+                    CONSULTA ONLINE
+                </small>
+
+                <strong>
+                    Negociação de dívidas
+                </strong>
+
             </div>
 
         </div>
+
 
         <div class="security">
             🔒 Seguro
@@ -840,61 +1148,103 @@ body{
     </header>
 
 
-    <!-- PROGRESSO -->
+    <!-- =====================================
+         PROGRESSO
+    ====================================== -->
 
-    <section class="progress-area">
+    <section
+        class="progress-area"
+        aria-label="Progresso da consulta"
+    >
 
-        <div class="progress-top">
-            <span>Etapa 1 de 3</span>
-            <span>33%</span>
+        <div class="progress-info">
+
+            <span>
+                Etapa 1 de 3
+            </span>
+
+            <span>
+                33%
+            </span>
+
         </div>
 
-        <div class="progress-bar">
+
+        <div class="progress">
+
             <div class="progress-fill"></div>
+
         </div>
 
     </section>
 
 
-    <!-- CARD -->
+    <!-- =====================================
+         CARD
+    ====================================== -->
 
     <section class="card">
 
+
         <div class="hero">
 
+
+            <!-- BADGE -->
+
             <div class="badge">
+
                 <span class="badge-dot"></span>
+
                 CONSULTA ONLINE
+
             </div>
 
 
+            <!-- TÍTULO -->
+
             <h1>
+
                 Já começou a
-                <span>desenrolar?</span>
+
+                <span>
+                    desenrolar?
+                </span>
+
             </h1>
 
 
-            <p>
+            <p class="intro">
+
                 Consulte as informações disponíveis
                 e confira as opções de negociação.
+
             </p>
 
 
-            <!-- ILUSTRAÇÃO -->
+            <!-- =================================
+                 ILUSTRAÇÃO
+            ================================== -->
 
             <div class="illustration">
 
                 <div class="blob"></div>
 
+
                 <div class="phone">
 
                     <div class="phone-notch"></div>
 
+
                     <div class="phone-content">
-                        <div class="check">✓</div>
+
+                        <div class="check">
+                            ✓
+                        </div>
+
                     </div>
 
                 </div>
+
 
                 <div class="shield">
                     ✓
@@ -903,9 +1253,12 @@ body{
             </div>
 
 
-            <!-- BENEFÍCIOS -->
+            <!-- =================================
+                 BENEFÍCIOS
+            ================================== -->
 
             <div class="features">
+
 
                 <div class="feature">
 
@@ -974,10 +1327,13 @@ body{
 
                 </div>
 
+
             </div>
 
 
-            <!-- BOTÃO -->
+            <!-- =================================
+                 BOTÃO INTERNO
+            ================================== -->
 
             <a
                 class="cta"
@@ -997,12 +1353,24 @@ body{
             </a>
 
 
+            <!-- TEMPO -->
+
             <div class="time">
-                ⏱ Consulta em menos de 2 minutos
+
+                <span>
+                    ⏱
+                </span>
+
+                <span>
+                    Consulta em menos de 2 minutos
+                </span>
+
             </div>
 
 
-            <!-- AVISO -->
+            <!-- =================================
+                 AVISO
+            ================================== -->
 
             <div class="warning">
 
@@ -1012,7 +1380,9 @@ body{
 
                 <div>
 
-                    <strong>Importante:</strong>
+                    <strong>
+                        Importante:
+                    </strong>
 
                     esta é uma página independente e não
                     representa, por si só, um canal oficial
@@ -1025,10 +1395,13 @@ body{
 
             </div>
 
+
         </div>
 
 
-        <!-- FOOTER -->
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
 
         <footer class="footer">
 
@@ -1036,17 +1409,25 @@ body{
             em canais governamentais antes de compartilhar
             dados pessoais.
 
+
             <div class="steps">
+
                 <span class="step active"></span>
+
                 <span class="step"></span>
+
                 <span class="step"></span>
+
             </div>
 
         </footer>
 
+
     </section>
+
 
 </main>
 
 </body>
+
 </html>
